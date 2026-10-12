@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: spillman-cad
+    runtime: node
+    plan: free
+    buildCommand: yarn install
+    startCommand: yarn start
+    healthCheckPath: /health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: TRUST_PROXY
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DISPATCH_USERNAME
+        sync: false
+      - key: DISPATCH_PASSWORD_HASH
+        sync: false
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
